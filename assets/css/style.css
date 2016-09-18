@@ -1,1 +1,56 @@
 @import 'common/base';
+header {
+  background: #0097A7;
+  color: #FFF;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.container {
+  width: 800px;
+  height: auto;
+  margin: 1rem auto;
+  position: relative;
+  img {
+    transition: 1s;
+    opacity: 0;
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .show {
+    opacity: 1;
+    z-index: 1;
+  }
+  .image-wrapper {
+    height: 500px;
+    &:before {
+      content: url(./img/arrow.png);
+      z-index: 100;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      height: 100px;
+      width: 100px;
+    }
+    &:after {
+      font-size: 50px;
+      content: '▶︎';
+      z-index: 100;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 68px;
+      width: 55px;
+
+    }
+  }
+}
