@@ -5,4 +5,6 @@ this repository is sample of slideshow with vanillaJS.
 - refactoring.
 - make another animate options.
 
+##DEMO
+https://takahiro-saeki.github.io/slide-show-vanillaJS/
 gh-pages
