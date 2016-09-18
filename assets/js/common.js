@@ -8,34 +8,60 @@ class Test {
     }, options)
     this.elem = this.options['elem'];
     this.time = this.options['time'];
+    const count = this.count;
     this.autoChange();
+    this.moveRight();
+    this.moveLeft();
   }
 
   autoChange() {
-    const box = document.querySelector(this.elem).children;
+    const box = document.querySelectorAll('.responsive-img');
     const interval = this.time;
     const length = box.length;
-    console.log(this.time)
-    console.log(this.elem)
-    let count = 0;
+    this.count = 0;
     box[0].classList.add('show');
-    setTimeout(() => this.slide(box, interval, length, count), interval);
+    let int = setInterval(() => this.slide(box, interval, length), interval);
   }
 
-  slide(box, interval, length, count) {
-    box[count].classList.remove('show')
-    count++;
-    if(count >= length) {
-      count = 0;
+  slide(box, interval, length) {
+    box[this.count].classList.remove('show');
+    this.count++;
+    if(this.count >= length) {
+      this.count = 0;
     }
-    box[count].classList.add('show')
-    setTimeout(() => this.slide(box, interval, length, count), interval);
+    box[this.count].classList.add('show')
+    box[this.count].classList.remove('fadeOutLeft');
+  }
+
+  moveRight() {
+    const box = document.querySelectorAll('.responsive-img');
+    const right = document.querySelector('.right')
+    right.addEventListener('click', e => {
+      box[this.count].classList.remove('show')
+      this.count++;
+      if(this.count >= 4) {
+        this.count = 0;
+      }
+      box[this.count].classList.add('show')
+      console.log(this.count)
+    })
+  }
+
+  moveLeft() {
+    const box = document.querySelectorAll('.responsive-img');
+    const left = document.querySelector('.left')
+    left.addEventListener('click', e => {
+      box[this.count].classList.add('fadeOutLeft')
+      box[this.count].classList.remove('show');
+      this.count--;
+      if(this.count < 0) {
+        this.count = 3;
+      }
+      box[this.count].classList.add('show')
+      box[this.count].classList.remove('fadeOutLeft');
+      console.log(this.count)
+    })
   }
 }
 
 new Test({time: 3000});
-
-/* 追加したい機能、リファクタ */
-//細かくメソッドを分割
-//戻るボタン、次に進むボタンの設置
-//slideする際のアニメーションを3パターン程作り、オプションで指定出来るようにする

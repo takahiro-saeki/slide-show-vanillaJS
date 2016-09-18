@@ -28,29 +28,43 @@ header {
   }
   .image-wrapper {
     height: 500px;
-    &:before {
-      content: url(./img/arrow.png);
-      z-index: 100;
-      position: absolute;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      height: 100px;
-      width: 100px;
-    }
-    &:after {
-      font-size: 50px;
-      content: '▶︎';
-      z-index: 100;
-      position: absolute;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      height: 68px;
-      width: 55px;
-
-    }
   }
+}
+
+.right {
+  margin: auto 1rem;
+  font-size: 40px;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: red;
+  background: #CCC;
+  color: #FFF;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  margin: auto 1rem;
+  font-size: 40px;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: #CCC;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
